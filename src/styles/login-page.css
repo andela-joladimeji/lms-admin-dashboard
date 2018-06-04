@@ -1,0 +1,25 @@
+.login {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.loginLink {
+  text-decoration: none;
+  background-color: #DC4A38;
+  color: #fff;
+  padding: 8px 12px;
+  border-radius: 3px;
+  margin: auto;
+  width: 10em;
+  cursor: pointer;
+  box-shadow: rgba(0, 0, 0, 0.117647) 0px 1px 6px, rgba(0, 0, 0, 0.117647) 0px 1px 4px;
+  font-size: 12px;
+}
+
+.googleIcon {
+  padding-right: 10px;
+}

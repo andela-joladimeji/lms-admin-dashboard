@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!--
+    **NOTE:** This is a template for index.html. It uses ejs and htmlWebpackPlugin to generate a different index.html for each environment. htmlWebpackPlugin will dynamically add references to the scripts and styles that it bundles to this file. The generated bundles have hash-based filenames, so it's necessary to add the references dynamically.
+    For more info on ejs, see http://www.embeddedjs.com/. For examples of using it with htmlWebpackPlugin, see https://github.com/jaketrent/html-webpack-template/blob/master/index.ejs
+  -->
+  <head>
+    <!--
+      The htmlWebpackPlugin will parse the logic below so that trackJS is only added to the production version of index.html (since only webpack.config.prod.js provides the trackJS token)
+      This is an example of how to add features to index.html for only one environment.
+      To track JavaScript errors via TrackJS, sign up for a free trial at TrackJS.com and enter your token in /webpack.config.prod.js on line 55.
+    -->
+    <% if (htmlWebpackPlugin.options.trackJSToken) { %>
+    <script>window._trackJs = {token: '<%= htmlWebpackPlugin.options.trackJSToken %>'};</script>
+    <script src="https://d2zah9y47r7bi2.cloudfront.net/releases/current/tracker.js"></script>
+    <% } %>
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>LMS Integration Dashboard</title>
+    <script src="https://use.fontawesome.com/f4ea74e357.js"></script>
+    <style>
+      .progress-indicator{background-color:#f5f5f5;width:100%;height:100%;position:fixed;opacity:1;pointer-events:none;-webkit-transition:opacity cubic-bezier(.4,0,.2,1) 436ms;-moz-transition:opacity cubic-bezier(.4,0,.2,1) 436ms;transition:opacity cubic-bezier(.4,0,.2,1) 436ms;z-index:9999}.progress-indicator.available{opacity:0}.progress-indicator .first-indicator,.progress-indicator .second-indicator{background-color:#3359DF;bottom:0;left:0;right:0;top:0;position:absolute;-webkit-transform-origin:left center;-moz-transform-origin:left center;transform-origin:left center;-webkit-transform:scaleX(0);-moz-transform:scaleX(0);transform:scaleX(0)}.progress-indicator .first-indicator{-webkit-animation:first-indicator 2000ms linear infinite;-moz-animation:first-indicator 2000ms linear infinite;animation:first-indicator 2000ms linear infinite}.progress-indicator .second-indicator{-webkit-animation:second-indicator 2000ms linear infinite;-moz-animation:second-indicator 2000ms linear infinite;animation:second-indicator 2000ms linear infinite}.progress-indicator .logo{animation:app-logo-spin infinite 5s linear;border-radius:50%;-webkit-align-self:center;-moz-align-self:center;align-self:center}.progress-indicator-head{background-color:#c6dafc;height:4px;overflow:hidden;position:relative}.logo-frame{display:-webkit-flex;display:-moz-flex;display:flex;-webkit-flex-direction:column;-moz-flex-direction:column;flex-direction:column;-webkit-justify-content:center;-moz-justify-content:center;justify-content:center;-webkit-animation:fadein 436ms;-moz-animation:fadein 436ms;animation:fadein 436ms;height:98%}.logo-frame-img{width:100px;height:100px;-webkit-align-self:center;-moz-align-self:center;align-self:center;border-radius:50%}@keyframes app-logo-spin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}@-webkit-keyframes fadein{from{opacity:0}to{opacity:1}}@-moz-keyframes fadein{from{opacity:0}to{opacity:1}}@keyframes fadein{from{opacity:0}to{opacity:1}}@keyframes first-indicator{0%{transform:translate(0%) scaleX(0)}25%{transform:translate(0%) scaleX(0.5)}50%{transform:translate(25%) scaleX(0.75)}75%{transform:translate(100%) scaleX(0)}100%{transform:translate(100%) scaleX(0)}}@keyframes second-indicator{0%{transform:translate(0%) scaleX(0)}60%{transform:translate(0%) scaleX(0)}80%{transform:translate(0%) scaleX(0.6)}100%{transform:translate(100%) scaleX(0.1)}}
+    </style>
+  </head>
+  <body>
+    <noscript>
+      You need to enable JavaScript to run this application.
+    </noscript>
+    <div class="progress-indicator" id="progress-indicator">
+      <div class="progress-indicator-head">
+        <div class="first-indicator"></div>
+        <div class="second-indicator"></div>
+      </div>
+      <div class="logo-frame" id="logo-frame">
+        <svg class="logo-frame-img logo" width="100" height="100" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+          <g>
+            <rect x="-1" y="-1" width="102" height="102" id="canvas_background" fill="none"/>
+          </g>
+          <g>
+            <g transform="translate(0,100) scale(0.10000000149011612,-0.10000000149011612) " fill="#3359DF" id="svg_1">
+            <path d="m420,925l-62,-75l-106,2l-107,3l3,-107l2,-107l-75,-63c-41,-34 -75,-70 -75,-79c0,-9 34,-44 75,-79l75,-62l-2,-106l-3,-107l107,3l107,2l63,-75c34,-41 70,-75 79,-75c9,0 44,34 79,75l62,75l106,-2l107,-3l-3,107l-2,107l75,63c41,34 75,70 75,79c0,9 -34,44 -75,79l-75,62l2,106l3,107l-107,-3l-107,-2l-63,75c-34,41 -70,75 -79,75c-9,0 -44,-34 -79,-75zm113,-91l29,-35l34,20c20,12 39,21 43,21c4,0 13,-18 20,-41c12,-40 12,-40 58,-38l46,3l1,-49c1,-47 2,-49 36,-58c19,-5 36,-10 38,-12c2,-2 -6,-21 -17,-43l-21,-40l38,-31l37,-30l-37,-31l-37,-31l19,-32c28,-45 25,-54 -17,-64c-37,-9 -38,-10 -39,-58l-1,-48l-48,-1c-47,-1 -49,-2 -58,-36c-5,-19 -10,-36 -12,-38c-2,-2 -21,6 -43,17l-40,21l-31,-38l-30,-37l-31,37l-31,37l-35,-19c-47,-27 -51,-26 -61,18c-9,36 -10,37 -58,38l-48,1l-1,48c-1,47 -2,49 -36,58c-19,5 -36,10 -38,12c-2,2 6,21 17,43l21,41l-37,30l-38,31l38,31l38,31l-21,35c-27,46 -26,50 18,60c36,9 37,10 38,58l1,48l48,1c47,1 49,2 58,36c5,19 10,36 12,38c2,2 21,-6 44,-17l40,-21l28,35c15,19 30,35 33,35c3,0 18,-16 33,-36z" id="svg_2"/>
+            </g>
+          </g>
+        </svg>
+      </div>
+    </div>
+
+    <div id="app"></div>
+  </body>
+</html>
